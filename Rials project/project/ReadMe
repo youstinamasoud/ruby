@@ -1,0 +1,15 @@
+To start project with url : localhost:3000/welcome/home 
+
+Finished Required
+- register 
+- login
+- create a course
+- reate a lecture
+- comment on a lecture
+- like a lecture
+- admin and CRUD
+- Following ruby/rails naming conventions and code readability 
+
+Ruby and Rails Version
+ruby 2.5.1
+rails 5.1

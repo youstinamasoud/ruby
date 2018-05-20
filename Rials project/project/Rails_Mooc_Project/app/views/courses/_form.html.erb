@@ -1,0 +1,43 @@
+<%= form_with(model: course, local: true) do |form| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+  <div class="control-label col-sm-2">
+  <%= form.label :Title %>
+  </div>
+  <div class="col-sm-8">
+  <%= form.text_field :title , class:"form-control" , autofocus: true %>
+ </div>
+ </div>
+<br>
+<br>
+<div class="form-group">
+<div class="control-label col-sm-2">
+<%= form.label :Description %>
+</div>
+<div class="col-sm-8">
+<%= form.text_area :description , class:"form-control" , autofocus: true %>
+</div>
+</div>
+<br>
+<br>
+
+<div class="actions">
+<%= form.submit "Create course" , class: 'btn btn-primary btn-xlarge' %>
+</div>
+<% end %>
+
+<div class="col-xs-offset-4">
+ [<%= link_to "cancel request and return to courses list" , courses_path %>]
+</div>

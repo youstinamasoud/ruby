@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @lecture.content %>
+</p>
+<%= link_to Like_lecture_path(@lecture), method: :put do %>
+  Like
+  <%= @lecture.get_upvotes.size %>
+<% end %>
+
+<%= link_to Dislike_lecture_path(@lecture), method: :put do %>
+  DisLike
+  <%= @lecture.get_downvotes.size %>
+<% end %>
+
+<%= commontator_thread(@lecture) %>
+
+<%= link_to 'Edit', edit_lecture_path(@lecture) %> |
+<%= link_to 'Back', lectures_path %>

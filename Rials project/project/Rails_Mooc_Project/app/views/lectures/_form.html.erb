@@ -1,0 +1,44 @@
+<%= form_with(model: lecture, local: true) do |form| %>
+  <% if lecture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lecture.errors.count, "error") %> prohibited this lecture from being saved:</h2>
+
+      <ul>
+      <% lecture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :lecture_content %>
+  </div>
+
+  <br>
+
+  <div class="field">
+  <%= form.label :course %>
+  <%= form.collection_select :course_id, Course.order(:title), :id, :title, include_blank: true %>
+  </div>
+   
+  <br>
+
+  <div class="form-group">
+    <%= form.label :attachment %>
+    <br>
+    <p class="help-block">Upload attachment.</p>
+    <%= form.file_field :attachment %>
+    <br>
+  </div>
+
+  <%= hidden_field_tag 'lecture[course_id]', params[:c_id]  if params[:c_id] != nil%>
+
+  <div class="actions">
+  <%= form.submit class:'btn btn-primary btn-block' %>
+</div>
+<% end %>
+<hr>
+<%= link_to 'Back', courses_url, style: 'font-size: 1.5em;' %>
+</div>
